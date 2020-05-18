@@ -1,0 +1,143 @@
+<div class = "container-fluid mb-5">
+    <h1>Update Question</h1>
+    <form #updateQuestionForm="ngForm" (ngSubmit)="updateQuestion(updateQuestionForm)" novalidate>
+
+        <div class="form-group">
+            <label class="form-group-level">Test Id</label>
+            <input type="number" required #testId ="ngModel" 
+            [class.is-invalid]="testId.invalid && testId.touched"
+            class = "form-control" name="testId" [(ngModel)]="question.testId">
+        <small class ="text-danger" 
+        [class.d-none]="testId.valid || testId.untouched" >Test Id is Required</small>
+        </div>
+
+        <div class="form-group">
+            <label class="form-group-level">Question Id</label>
+            <input type="number" required #questionId ="ngModel" 
+            [class.is-invalid]="questionId.invalid && questionId.touched"
+            class = "form-control" name="questionId" [(ngModel)]="question.questionId">
+        <small class ="text-danger" 
+        [class.d-none]="questionId.valid || questionId.untouched" >Question Id is Required</small>
+    
+        </div>
+
+        <div class="form-group">
+            <label class="form-group-level">Question Title</label>
+            <input type="text" required #questionTitle="ngModel" 
+                [class.is-invalid]="questionTitle.invalid && questionTitle.touched"
+                class = "form-control" name="questionTitle" [(ngModel)]="question.questionTitle">
+            <small class ="text-danger" 
+            [class.d-none]="questionTitle.valid || questionTitle.untouched" >Question Title is Required</small>
+        </div>
+
+        <label class="form-group-level">Enter Question Options </label>
+
+        <div class="form-group">
+            <label class="form-group-level">Question Option 1 </label>
+            <input type="text" required #questionOption1="ngModel" 
+                [class.is-invalid]="questionOption1.invalid && questionOption1.touched"
+                class="form-control" name = "questionOption1" [(ngModel)]="question.questionOption1">
+            <small class ="text-danger" 
+            [class.d-none]="questionOption1.valid || questionOption1.untouched" >Question Option 1 is Required</small>
+        </div>
+
+        <div class="form-group">
+            <label class="form-group-level">Question Option 2 </label>
+            <input type="text" required #questionOption2="ngModel" 
+                [class.is-invalid]="questionOption2.invalid && questionOption2.touched"
+                class="form-control" name = "questionOption2" [(ngModel)]="question.questionOption2">
+            <small class ="text-danger" 
+            [class.d-none]="questionOption2.valid || questionOption2.untouched" >Question Option 2 is Required</small>
+        </div>
+
+        <div class="form-group">
+            <label class="form-group-level">Question Option 3 </label>
+            <input type="text" required #questionOption3="ngModel" 
+                [class.is-invalid]="questionOption3.invalid && questionOption3.touched"
+                class="form-control" name = "questionOption3" [(ngModel)]="question.questionOption3">
+            <small class ="text-danger" 
+            [class.d-none]="questionOption3.valid || questionOption3.untouched" >Question Option 3 is Required</small>
+        </div>
+
+        <div class="form-group">
+            <label class="form-group-level">Question Option 4 </label>
+            <input type="text" required #questionOption4="ngModel" 
+                [class.is-invalid]="questionOption4.invalid && questionOption4.touched"
+                class="form-control" name = "questionOption4" [(ngModel)]="question.questionOption4">
+            <small class ="text-danger" 
+            [class.d-none]="questionOption4.valid || questionOption4.untouched" >Question Option 4 is Required</small>
+        </div>
+
+
+        <div class="form-group">
+            <label class="form-group-level">Question Answer</label>
+            <input type="number" required #questionAnswer="ngModel" 
+                [class.is-invalid]="questionAnswer.invalid && questionAnswer.touched"
+                class="form-control" name = "questionAnswer" [(ngModel)]="question.questionAnswer">
+            <small class ="text-danger" 
+            [class.d-none]="questionAnswer.valid || questionAnswer.untouched" >Question Answer is Required</small>
+        </div>
+
+        <div class="form-group">
+            <label class="form-group-level">Question Marks</label>
+            <input type="number" required #questionMarks="ngModel" 
+                [class.is-invalid]="questionMarks.invalid && questionMarks.touched"
+                class="form-control" name = "questionMarks" [(ngModel)]="question.questionMarks">
+            <small class ="text-danger" 
+            [class.d-none]="questionMarks.valid || questionMarks.untouched" >Question Marks are Required</small>
+        </div>
+
+        <div class="form-group">
+            <label class="form-group-level">Chosen Answer</label>
+            <input type="number" required #chosenAnswer="ngModel" 
+                [class.is-invalid]="chosenAnswer.invalid && chosenAnswer.touched"
+                class="form-control" name = "chosenAnswer" [(ngModel)]="question.chosenAnswer">
+            <small class ="text-danger" 
+            [class.d-none]="chosenAnswer.valid || chosenAnswer.untouched" >Chosen Answer is Required</small>
+        </div>
+
+        <div class="form-group">
+            <label class="form-group-level">Marks Scored</label>
+            <input type="number" required #marksScored="ngModel" 
+                [class.is-invalid]="marksScored.invalid && marksScored.touched"
+                class="form-control" name = "marksScored" [(ngModel)]="question.marksScored">
+            <small class ="text-danger" 
+            [class.d-none]="marksScored.valid || marksScored.untouched" >Marks Scored is Required</small>
+        </div>
+        
+        <br/>
+        <button [disabled]="updateQuestionForm.form.invalid" class="btn btn-primary" type="submit">Update Question</button>
+
+    </form>
+
+    <div class="container" *ngIf="show">
+        <h1>Question updated Successfully. Updated Question Details</h1>
+            <table class="table">
+                <tr>
+                    <th>Test Id</th><td>{{question.testId}}</td>
+                </tr>
+                <tr>
+                    <th>Question Id</th><td>{{question.questionId}}</td>
+                </tr>
+                <tr>
+                    <th>Question Title</th><td>{{question.questionTitle}}</td>
+                </tr>
+                <tr>
+                    <th>Question Options</th><td>{{questionOptions}}</td>
+                </tr>
+                <tr>
+                    <th>Question Answer</th><td>{{question.questionAnswer}}</td>
+                </tr>
+                <tr>
+                    <th>Question Marks</th><td>{{question.questionMarks}}</td>
+                </tr>
+                <tr>
+                    <th>Chosen Answer</th><td>{{question.chosenAnswer}}</td>
+                </tr>
+                <tr>
+                    <th>Marks Scored</th><td>{{question.marksScored}}</td>
+                </tr>
+            </table>
+    </div>
+
+</div>

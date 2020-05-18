@@ -1,0 +1,24 @@
+<div class = "container-fluid mb-5">
+    <h1>Delete Question</h1>
+    <form #deleteForm = "ngForm" (ngSubmit)="deleteQuestion(deleteForm)">
+        <div class="form-group">
+            <label class="form-group'level">Question Id</label>
+            <input type="text" required #questionId="ngModel" pattern="^\d+$" name="questionId" class="form-control" ngModel>
+        </div>
+
+        <div class="alert alert-danger" *ngIf="questionId.errors && (questionId.dirty || questionId.touched)">
+            <div *ngif="questionId.errors.required"> 
+                Question Id is required.
+            </div>
+        
+            <div *ngIf="questionId.errors.pattern">
+                   Question Id should be numeric.
+            </div>
+        </div>
+
+        <button [disabled]="deleteForm.form.invalid" class="btn btn-primary" type="submit">Delete</button>
+    </form>
+</div>
+<div class="container" *ngIf="show">
+    <small style="color: red;">{{response}}</small>
+ </div>
