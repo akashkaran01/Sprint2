@@ -7,7 +7,7 @@ public class QuestionDto {
 
 	private BigInteger testId;
 	
-	private BigInteger questionId;
+	//private BigInteger questionId;
 	private String questionTitle;
 	private int questionAnswer;
 	
@@ -23,12 +23,11 @@ public class QuestionDto {
 	public void setTestId(BigInteger testId) {
 		this.testId = testId;
 	}
-	public BigInteger getQuestionId() {
-		return questionId;
-	}
-	public void setQuestionId(BigInteger questionId) {
-		this.questionId = questionId;
-	}
+
+	/*
+	 * public BigInteger getQuestionId() { return questionId; } public void
+	 * setQuestionId(BigInteger questionId) { this.questionId = questionId; }
+	 */
 	public String getQuestionTitle() {
 		return questionTitle;
 	}

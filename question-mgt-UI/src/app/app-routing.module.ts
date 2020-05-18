@@ -7,7 +7,6 @@ import { GetQuestionsByTestidComponent } from './get-questions-by-testid/get-que
 
 
 const routes: Routes = [
-  {path:"",redirectTo:"addQuestion",pathMatch:"full"},
   {path:"addQuestion", component:AddQuestionComponent},
   {path:"deleteQuestion", component:DeleteQuestionComponent},
   {path:"updateQuestion", component:UpdateQuestionComponent},

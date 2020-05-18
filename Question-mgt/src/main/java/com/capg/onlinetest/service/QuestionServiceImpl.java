@@ -25,9 +25,10 @@ public class QuestionServiceImpl implements IQuestionService {
 	public List<Question> getAllQuestionsByTestId(BigInteger testId){
 		List<Question> questions = dao.findByTestId(testId);
 
-		if(questions.isEmpty()) {
-			throw new TestNotFoundException("No test with Test Id : "+testId+" found.");
-		}
+		/*
+		 * if(questions.isEmpty()) { throw new
+		 * TestNotFoundException("No test with Test Id : "+testId+" found."); }
+		 */
 		return questions;
 	}
 	
@@ -38,6 +39,12 @@ public class QuestionServiceImpl implements IQuestionService {
 
 	@Override
 	public void updateQuestion(Question question, BigInteger questionId) {
+		Question old_question = dao.findByQuestionId(questionId);
+		if(old_question == null) {
+			throw new QuestionNotFoundException("No Question with Question Id : "+questionId+" found");
+		}else {
+			question.setQuestionId(questionId);
+		}
 		dao.save(question);
 	}
 

@@ -3,6 +3,7 @@ package com.capg.onlinetest.entity;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,11 +12,12 @@ import javax.persistence.Table;
 @Table(name = "questions")
 public class Question {
 	
+	@Id
+	@GeneratedValue
+	private BigInteger questionId;
 	
 	private BigInteger testId;
 	
-	@Id
-	private BigInteger questionId;
 	private String questionTitle;
 	private int questionAnswer;
 	

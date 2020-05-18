@@ -1,9 +1,9 @@
 <div class = "container-fluid mb-5">
-    <h1>Delete Question</h1>
+    <h1 style="text-align: center;"><i><b>DELETE QUESTION </b></i></h1>
     <form #deleteForm = "ngForm" (ngSubmit)="deleteQuestion(deleteForm)">
         <div class="form-group">
             <label class="form-group'level">Question Id</label>
-            <input type="text" required #questionId="ngModel" pattern="^\d+$" name="questionId" class="form-control" ngModel>
+            <input type="number" required #questionId="ngModel" pattern="^\d+$" name="questionId" class="form-control" ngModel>
         </div>
 
         <div class="alert alert-danger" *ngIf="questionId.errors && (questionId.dirty || questionId.touched)">
@@ -20,5 +20,9 @@
     </form>
 </div>
 <div class="container" *ngIf="show">
-    <small style="color: red;">{{response}}</small>
+    <!-- <h3 style="color: red;">{{response}}</h3> -->
+    <div *ngIf="response; else elseBlock">
+        <h3 style="color: red;">Question Deleted Successfully</h3>
+    </div>
+    <ng-template #elseBlock><h5>No such Question found. Please re-check entered Question Id.</h5></ng-template>
  </div>

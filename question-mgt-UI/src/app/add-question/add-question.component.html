@@ -1,5 +1,5 @@
 <div class = "container-fluid mb-5">
-        <h1>Add Question</h1>
+    <h1 style="text-align: center;"><i><b>ADD QUESTION </b></i></h1>
         <form #addQuestionForm="ngForm" (ngSubmit)="onClickAddQuestion(addQuestionForm)" novalidate>
     
             <div class="form-group">
@@ -103,7 +103,11 @@
     
         <div class="container" *ngIf="show">
             <h1>Question added Successfully. Added Question Details</h1>
-                <table class="table">
+                <table class="table" >
+                    <!-- <tr>
+                        <th>QuestionRESP TITLE </th><td>{{questionResp.questionTitle}}</td>
+
+                    </tr> -->
                     <tr>
                         <th>Test Id</th><td>{{question.testId}}</td>
                     </tr>

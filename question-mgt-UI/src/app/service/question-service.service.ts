@@ -24,20 +24,20 @@ export class QuestionServiceService {
   }
 
   deleteQuestion(questionId:number):Observable<boolean>{
-    let url = this.baseQuestionUrl+"/delete/id"+questionId;
+    let url = this.baseQuestionUrl+"/delete/"+questionId;
     let result: Observable<boolean> = this.client.delete<boolean>(url);
     return result;
   }
 
   updateQuestion(question: QuestionDto, questionId:number):Observable<Question>{
-    let url = this.baseQuestionUrl+"/update/id"+questionId;
+    let url = this.baseQuestionUrl+"/update/"+questionId;
     let result: Observable<Question> = this.client.put<Question>(url,question);
     return result;
   }
 
   getQuestionsByTestId(testId:number):Observable<Question[]>
   {
-    let url = this.baseQuestionUrl+"/test/id/"+testId;
+    let url = this.baseQuestionUrl+"/test/"+testId;
     let result: Observable<Question[]> = this.client.get<Question[]>(url);
     return result;
   }

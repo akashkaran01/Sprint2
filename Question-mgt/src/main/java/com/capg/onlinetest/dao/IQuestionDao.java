@@ -14,4 +14,6 @@ public interface IQuestionDao extends JpaRepository<Question,BigInteger>{
 	
 	List<Question> findByTestId(BigInteger testId);
 	
+	Question findByQuestionId(BigInteger questionId);
+	
 }
